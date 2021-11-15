@@ -1,29 +1,21 @@
 const config = {
   gatsby: {
     pathPrefix: '/',
-    siteUrl: 'https://hasura.io',
-    gaTrackingId: null,
+    siteUrl: 'https://murillocjr.github.io/tanakh-read-along-site/',
+    gaTrackingId: "G-NQ6GFSHNJ1", //stream id : 3048013143
     trailingSlash: false,
   },
   header: {
     logo: 'tra-images/icon-wide.png',
-    logoLink: 'https://hasura.io/learn/',
-    title:
-      "<a href='https://hasura.io/learn/'><img class='img-responsive' src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/learn-logo.svg' alt='Learn logo' /></a>",
-    githubUrl: 'https://github.com/hasura/gatsby-gitbook-boilerplate',
+    logoLink: 'https://murillocjr.github.io/tanakh-read-along-site/',
+    title: "Tanakh Read Along Project",
+    githubUrl: '',
     helpUrl: '',
     tweetText: '',
     social: `<li>
-		    <a href="https://twitter.com/hasurahq" target="_blank" rel="noopener">
+		    <a href="https://twitter.com/murillocjr" target="_blank" rel="noopener">
 		      <div class="twitterBtn">
-		        <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/twitter-brands-block.svg' alt={'Twitter'}/>
-		      </div>
-		    </a>
-		  </li>
-			<li>
-		    <a href="https://discordapp.com/invite/hasura" target="_blank" rel="noopener">
-		      <div class="discordBtn">
-		        <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-brands-block.svg' alt={'Discord'}/>
+		        <img src='tra-images/twitter-brand.svg' alt={'Twitter'}/>
 		      </div>
 		    </a>
 		  </li>`,
@@ -44,18 +36,18 @@ const config = {
     collapsedNav: [
       '/codeblock', // add trailing slash if enabled above
     ],
-    links: [{ text: 'Hasura', link: 'https://hasura.io' }],
+    links: [{ text: 'Jorge Murillo', link: 'https://murillocjr.github.io/' }],
     frontline: false,
     ignoreIndex: true,
     title:
-      "<a href='https://hasura.io/learn/'>graphql </a><div class='greenCircle'></div><a href='https://hasura.io/learn/graphql/react/introduction/'>react</a>",
+      "Tanakh Read Along",
   },
   siteMetadata: {
-    title: 'Gatsby Gitbook Boilerplate | Hasura',
-    description: 'Documentation built with mdx. Powering hasura.io/learn ',
+    title: 'Tanakh Read Along',
+    description: 'AI/ML, iOS and Android applications ',
     ogImage: null,
-    docsLocation: 'https://github.com/hasura/gatsby-gitbook-boilerplate/tree/master/content',
-    favicon: 'https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg',
+    docsLocation: 'https://murillocjr.github.io/tanakh-read-along-site/',
+    favicon: '',
   },
   pwa: {
     enabled: false, // disabling this will also remove the existing service worker.
