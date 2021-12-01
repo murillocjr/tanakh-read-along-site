@@ -30,8 +30,8 @@ const config = {
   },
   sidebar: {
     forcedNavOrder: [
-      '/introduction', // add trailing slash if enabled above
-      '/codeblock',
+      '/resources', // add trailing slash if enabled above
+      '/forced-alignment',
     ],
     collapsedNav: [
       '/codeblock', // add trailing slash if enabled above

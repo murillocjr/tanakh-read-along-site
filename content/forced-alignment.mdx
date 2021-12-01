@@ -1,0 +1,24 @@
+---
+title: "Forced Alignment"
+metaTitle: "Tanakh Read Along Karaoke Montreal Forced Aligner Python iOS Android"
+metaDescription: "Tanakh Read Along Karaoke Montreal Forced Aligner Python iOS Android"
+---
+
+Defining the problem and the road to find the solution.
+
+## Forced Alignment
+
+Forced Alignment is the answer to the question:
+"How can I get the exact timestamp a word appears in an audio file when I have both the audio and the exact text spoken in it?"
+
+But I didn't know that when I started this project, 
+
+## Failed Attempts
+- I tried to identify words by detecting the silences between them, but I found that there isn't always a detectable pause between spoken words. For this purpose, I tried ffmpeg and other python "silence detection" libraries.
+- Since silences alone weren't able to provide enough information to match sounds with text, I tried to add more "points" in the form of phoneme-timestamp pairs using phonemes-detection libraries. For example, the "sh" sound in Hebrew was very well identified by some libraries. These libraries work by taking an audio input and returning a sequence of characters, each with a start and end timestamp. 
+- With a collection of phonemes matching characters in the text, the results improved considerably, but were still far from something that could be useful or fixable manually in a short amount of time. If it had been possible to fix each Psalms chapter in 10 minutes or less, I probably would have stuck with this procedure.
+- Seeing that phoneme-to-audio matching is part of the much more complex speech-to-text problem solutions, this trail led me to find that the solutions needed to take into account nuances even for the same person in different situations. I also found out about the lack of trained models for the Hebrew language, among other interesting insights. During that research process, I learned about Forced-Alignment specific libraries.
+
+### What I learned from my failures
+- Mainly that it was a solved problem already and the solution is called "Forced Alignment"
+- Since I needed to check how effective each attempt was, it was necessary to define a data structure to hold the information produced: word, time-start, and time-end. Also a way to quickly hear, check, and verify if the audio interval matched the word. So that data structure and hearing utility are still useful for checking the forced alignment process results.
