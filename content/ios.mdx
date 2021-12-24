@@ -1,12 +1,12 @@
-For the iOS Project, i decided to use:
-- swiftUI for the sound-animation sync effect
-- modular architecture multirepo
+For the iOS Project, I decided to use:
+- SwiftUI for the sound-animation sync effect
+- Modular multirepo architecture
     - Tried swift package manager, but wasn't able to get it to work as I wanted.
     - Cocoapods as dependency manager 
 
     - TanakhResources : as an independent framework with the responsibility of provide audio and JSon resources for the app
         - The App is currently getting big media files from Google Storage
-            - in the event that in the future it becomes necessary to change to other Content Provider, like Amazon S3, Linode, etc. The impact should be minumum to the main App, ideally just a change in pod dependency name should be enough.
+            - in the event that in the future it becomes necessary to change to other Content Provider, like Amazon S3, Linode, etc. The impact should be minimum to the main App, ideally just a change in pod dependency name should be enough.
             - I did try Amazon S3 first, but couldn't get the SDK working, so I opted for Google Firebase 
         - Since Firebase use static libraries, it was necessary to add 
 
@@ -30,11 +30,13 @@ For the iOS Project, i decided to use:
         ```
 
         Once completed the basic functionallity for TanakhResources:
-            - List Locally
-            - List from cloud
-            - Download Text and Audio From Firebase Storage
-            - Delete local data
-            - Check for existing local data.
+
+        - List Locally
+        - List from cloud
+        - Download Text and Audio From Firebase Storage
+        - Delete local data
+        - Check for existing local data.
+
         next step is to publish this independent module to be consumed by the Main App.
         Since GoogleService-Info.plist contains information for my Google Firebase Account I can't commit that file to the Github repo; so it will be "injected" in place with a script after the pod is cloned.
 
