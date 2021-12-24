@@ -3,7 +3,7 @@
 <node TEXT="Tanakh Read Along" FOLDED="false" ID="ID_696401721" CREATED="1610381621824" MODIFIED="1636652334843" STYLE="oval">
 <font SIZE="18"/>
 <hook NAME="MapStyle">
-    <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false" associatedTemplateLocation="template:/standard-1.6.mm" followedTemplateLocation="template:/standard-1.6.mm" followedMapLastTime="1636317641000"/>
+    <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" associatedTemplateLocation="template:/standard-1.6.mm" followedTemplateLocation="template:/standard-1.6.mm" followedMapLastTime="1636317641000" fit_to_viewport="false"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
@@ -71,17 +71,17 @@
 <hook NAME="AutomaticEdgeColor" COUNTER="6" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="Resources" POSITION="right" ID="ID_1692286289" CREATED="1636652400186" MODIFIED="1636652486298">
 <edge COLOR="#0000ff"/>
-<node TEXT="Tanakh Text" ID="ID_817389244" CREATED="1636652486816" MODIFIED="1636652488386"/>
-<node TEXT="Tanakh Audio" ID="ID_1525564344" CREATED="1636652488816" MODIFIED="1636652493740"/>
+<node TEXT="Tanakh Text" ID="ID_817389244" CREATED="1636652486816" MODIFIED="1636652488386">
+<node TEXT="BibleHub" ID="ID_346008341" CREATED="1640336908101" MODIFIED="1640336914282"/>
+</node>
+<node TEXT="Tanakh Audio" ID="ID_1525564344" CREATED="1636652488816" MODIFIED="1636652493740">
+<node TEXT="Talking Bibles International" ID="ID_1623785094" CREATED="1640336914641" MODIFIED="1640336924823"/>
+</node>
 </node>
 <node TEXT="iOS App" POSITION="right" ID="ID_937646412" CREATED="1636652474022" MODIFIED="1636652506941">
 <edge COLOR="#00ff00"/>
 <node TEXT="SwiftUI" ID="ID_1605790271" CREATED="1636652959751" MODIFIED="1636652976749"/>
-<node TEXT="Architecture" ID="ID_1390523923" CREATED="1636652965421" MODIFIED="1636652984895"/>
-</node>
-<node TEXT="Android App" POSITION="right" ID="ID_1728327276" CREATED="1636652507362" MODIFIED="1636652511475">
-<edge COLOR="#ff00ff"/>
-<node TEXT="" ID="ID_1406852436" CREATED="1636652956733" MODIFIED="1636652956733"/>
+<node TEXT="Modular Architecture" ID="ID_1390523923" CREATED="1636652965421" MODIFIED="1640336931908"/>
 </node>
 <node TEXT="Documentation" POSITION="right" ID="ID_479921125" CREATED="1636652613021" MODIFIED="1636652616245">
 <edge COLOR="#00ffff"/>
@@ -91,9 +91,7 @@
 </node>
 <node TEXT="MindMap" ID="ID_739128795" CREATED="1636653009221" MODIFIED="1636653016954">
 <node TEXT="Freeplane" ID="ID_1144450583" CREATED="1636653017743" MODIFIED="1636653021787"/>
-<node TEXT="Online-Viewer for MindMaps" ID="ID_1139419521" CREATED="1636673808801" MODIFIED="1636673814755">
-<node TEXT="Project initiated and maintained by Jirka Dell&apos;Oro-Friedl, Hochschule Furtwangen University&#xa;First version written by Konstantin Röhm as student research project in summer 2014" ID="ID_1950535609" CREATED="1636673837463" MODIFIED="1636673841655"/>
-</node>
+<node TEXT="Online-Viewer for MindMaps" ID="ID_1139419521" CREATED="1636673808801" MODIFIED="1636673814755"/>
 </node>
 </node>
 <node TEXT="ML/AI Component" POSITION="left" ID="ID_1126162604" CREATED="1636652909219" MODIFIED="1636652919112">
@@ -103,8 +101,13 @@
 <node TEXT="Python Scripts" ID="ID_1899786292" CREATED="1636652883759" MODIFIED="1636652894524"/>
 </node>
 </node>
-<node TEXT="Romanization" ID="ID_148288432" CREATED="1636652927032" MODIFIED="1636652937002"/>
-<node TEXT="Lexicon" ID="ID_1792591812" CREATED="1636652947824" MODIFIED="1636652950259"/>
+<node TEXT="Lexicon" ID="ID_1792591812" CREATED="1636652947824" MODIFIED="1636652950259">
+<node TEXT="BibleHub Pronunciation data" ID="ID_1689848745" CREATED="1640336868652" MODIFIED="1640336880133"/>
+<node TEXT="Script to Translate to MFA phonetics" ID="ID_107324823" CREATED="1640336881805" MODIFIED="1640336896785"/>
+</node>
+<node TEXT="HebrewText" ID="ID_1400885894" CREATED="1640336799572" MODIFIED="1640336806221">
+<node TEXT="BibleHub Translation Tables" ID="ID_697864780" CREATED="1640336846103" MODIFIED="1640336864372"/>
+</node>
 </node>
 </node>
 </map>
