@@ -1,0 +1,63 @@
+---
+title: "iOS App"
+metaTitle: "Tanakh Read Along Karaoke Montreal Forced Aligner Python iOS Android"
+metaDescription: "Tanakh Read Along Karaoke Montreal Forced Aligner Python iOS Android"
+---
+
+For the iOS Project, I decided to use:
+
+## SwiftUI 
+
+For the animation syncing text and audio in a karaoke-life effect.
+
+Not being quite an expert on SwiftUI, I spent some time figuring out how each page/view is rendereds, and came to the following conclusions:
+
+- It doesn't happen in a structured, line-after-line instruction execution as I expected. I had the impression that the interface was constantly "scanned" and the reconstruction of components happened continually as well.
+- Trying to sequentially accumulate yPos values to calculate the position of each word-object was a nightmare. Debugging values revealed a non-linear behavior that was throwing my calculations off dramatically. I discovered that storing the calculated x and y positions for each word in an array was the best solution. This allowed me to gain control and predictability since I could determine placements from the array's values rather than depending on the objects' orderly creation.
+- Alignment Guides saved the day because they can be calculated dynamically dependent on the size of the created word-object. Offsets appear to be considerably more static, making it harder to place an object dynamically. It took some time for me to get comfortable to the axis direction and the calculations that were required.
+
+
+## Modular Multirepo Architecture
+
+The goal is to keep component responsibilities as independent as possible. In this case, the task of retrieving data (JSON and WAV) from the cloud was delegated to a separate project, which was then consumed by the main app via Cocoapods as a Framework (named TanakhResources).
+
+TanakhResources is currently getting all the media and text files from Firebase Google Storage; if it becomes necessary in the future to switch to another content provider, such as Amazon S3, Linode, or others, the impact on the main app should be minimal; ideally, a change in pod dependency name should suffice.
+I did try Amazon S3 first, but couldn't get the SDK working, so I opted for Google Firebase.
+
+### Firebase
+
+Since Firebase uses static libraries, it was necessary to add:
+
+```ruby
+    s.static_framework = true
+```
+
+to the TanakhResources.podspec file.
+
+The file "GoogleService-Info.plist" must be accessible by the main project in order for Firebase to operate, however since I'm developing this as a Pod, it had to be packed with the framework. First, I tried utilizing a resource bundle to send it:
+
+```ruby
+    s.resource_bundles = {
+        'TanakhResources' => ['TanakhResources/Assets/**/*']
+    }
+```
+
+But it failed. I'm not sure if it was because it was in a bundle or because static libraries don't operate with resources. What worked in the end was:
+
+```ruby
+    s.resources = ['TanakhResources/Assets/GoogleService-Info.plist']
+```
+
+TanakhResources now have the following basic functionalities:
+
+- List Locally
+- List from cloud
+- Download Text and Audio From Firebase Storage
+- Delete local data
+- Check for existing local data.
+
+The module can be consumed by the main App via Github or by simply pointing to the location of the locally cloned repository, as I did in my case.
+
+I couldn't commit GoogleService-Info.plist to the Github repo because it contained information for my Google Firebase Account, so it had to be "injected" into place with a script after the pod was cloned.
+
+I tried using Swift Package Manager to supply the Framework to the main App at one point, but I couldn't get it to work the way I intended.

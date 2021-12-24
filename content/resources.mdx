@@ -4,40 +4,44 @@ metaTitle: "Tanakh Read Along Karaoke Montreal Forced Aligner Python iOS Android
 metaDescription: "Tanakh Read Along Karaoke Montreal Forced Aligner Python iOS Android Hebrew Learning"
 ---
 
-Even before starting this project, while starting the process of Hebrew language learning, I managed to find audio recordings and text for the Tanakh online.
-
+Even before I started this project, when I was first learning Hebrew, I was able to get audio recordings and text for the Tanakh on the internet.
 # Text
 
-Tanakh with and without Niqqud are available in the Mongo Database of the [Sepharia Library](https://www.sefaria.org/texts) from where it was conveniently extracted in JSON format.
-
-![Sefaria Library](sefaria.png)
+While there are a number of sources online where Hebrew text may be found, with [Sepharia Library](https://www.sefaria.org/texts) being one of the best, the text for this project was obtained from [Biblehub](https://biblehub.com/) since the "Translation Table" style is convenient and fits the read-along process well.
 
 # Audio
 
-The audio, I got from [Talking Bibles](https://www.talkingbibles.org/)
-and needed removing some bits that were not present in the text, like introductions containing the book and chapter.
+I acquired the audio from [Talking Bibles International](https://www.talkingbibles.org/) and had to cut out certain parts that weren't in the text, such as the book and chapter introductions.
 
 # Lexicon & Dictionary
 
 ## Biblehub
-[Biblehub](https://biblehub.com/) makes available its translation table for download, which provides precisely what its necessary for the read-along process. With proninciation for each word in the following format:
+
+[Biblehub](https://biblehub.com/) makes its translation tables accessible for download, which contain all of the information needed for the read-along word-by-word matching process, including phonetic symbols for each word's pronunciation, as shown in the sample below:
 
 ```bash
 wə·ḏe·reḵ
 ```
-which I needed to map to the phonetis used by the Montreal Forced Aligner:
+which has to be mapped to the Montreal Forced Aligner's phonetic system:
+
 ```bash
 W AE1 D EH0 R EH0 JH
 ```
- using a python script with the manually determined mappings:
+For this, I created a python script that does the "translation" using the following equivalences discovered through manual testing:
 
  ```python
-phonetic_equivalences = {
-    "’a": "AE1",
-    "‘a": "AA0",
-    "ā": "AA1",
-    "‘ā": "AA2",
+PHONETIC_EQUIVALENCES = {
     "a": "AH0",
+    chr(8216) + "a": "AH1",
+    chr(8217) + "a": "AH2",
+    "ā": "AA0",
+    chr(8216) + "ā": "AA1",
+    chr(8217) + "ā": "AA2",
+    "å": "AO0",
+
+    chr(703) + "a": "AY0",
+    chr(703) + "ă": "AY1",
+    chr(703) + "å": "AY2",
 
     "b": "B",
     "ḇ": "V",
@@ -46,10 +50,20 @@ phonetic_equivalences = {
     "ḏ": "D",
     "ṣ": "DH",
 
-    "ə": "AE1",
+    "ə": "AE0",
+    chr(8216) + "ə": "AE1",
+    "ɛ": "AE2",
+
     "e": "EH0",
-    "ê": "EH1",
-    "‘ê": "EH2",
+    chr(8216) + "e": "EH1",
+    chr(8217) + "e": "EH2",
+    "ê": "EY0",
+    chr(8216) + "ê": "EY1",
+    chr(8217) + "ê": "EY2",
+    "ĕ": "ER0",
+    chr(8216) + "ĕ": "ER1",
+    chr(8217) + "ĕ": "ER2",
+    "ē": "EH0",
 
     "g": "G",
     chr(7713): "G",
@@ -63,6 +77,7 @@ phonetic_equivalences = {
     "î": "IY0",
     "’î": "IY1",
     "‘î": "IY2",
+    "ī": "IH0",
 
     "k": "K",
     "ḵ": "JH",
@@ -71,25 +86,40 @@ phonetic_equivalences = {
     "m": "M",
     "n": "N",
 
+    "o": "OY0",
+    chr(8216) + "o": "OY1",
+    chr(8217) + "o": "OY2",
+    "ō": "OW0",
+    chr(8216) + "ō": "OW1",
+    chr(8217) + "ō": "OW2",
+
     "p": "P",
     "q": "K",
     "r": "R",
 
+    "s": "S",
     "ś": "S",
     "š": "SH",
 
     "t": "T",
     "ṯ": "TH",
     "ṭ": "T",
-    "ō": "OW0",
+
     "u": "UH0",
-    "ū": "UW2",
+    chr(8216) + "u": "UH1",
+    chr(8217) + "u": "UH2",
+    "ū": "UW0",
+    chr(8216) + "ū": "UW1",
+    chr(8217) + "ū": "UW2",
 
     "w": "W",
     "y": "IY0",
+    "z": "Z",
 }
 ```
-The excel file provided has 40+ MB that Google Sheets and OpenOffice refused to open; so a Python script to separate it in Json files with a custom struct was also needed.
+
+The Translation Tables were available as a 40+ MB excel file that Google Sheets and OpenOffice refused to access, necessitating the usage of a Python script to divide it into Json files.
 
 ## The OSHB Hebrew Lexicon
-I considered using the data available in [The OSHB Hebrew Lexicon](https://github.com/openscriptures/HebrewLexicon) available under the [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/); but it had only the pronunciation lexixon for entries in its dictionary, missing a lot of conjugated words in the Tanakh. Biblehub has the complete information.
+
+I contemplated using data from [The OSHB Hebrew Lexicon](https://github.com/openscriptures/HebrewLexicon), which is licensed under the Creative Commons Attribution 4.0 International license, however it only included a pronunciation lexicon for entries in its dictionary, leaving out a lot of Tanakh conjugated terms. The whole information can be found on Biblehub.
