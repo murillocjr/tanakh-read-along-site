@@ -1,6 +1,6 @@
 const config = {
   gatsby: {
-    pathPrefix: 'tanakh-read-along-site/',
+    pathPrefix: '/tanakh-read-along-site',
     siteUrl: 'https://murillocjr.github.io/tanakh-read-along-site/',
     gaTrackingId: "G-NQ6GFSHNJ1", //stream id : 3048013143
     trailingSlash: false,
