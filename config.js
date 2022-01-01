@@ -44,7 +44,7 @@ const config = {
   },
   siteMetadata: {
     title: 'Tanakh Read Along',
-    description: 'AI/ML, iOS and Android applications ',
+    description: 'AI/ML, iOS applications',
     ogImage: null,
     docsLocation: 'https://murillocjr.github.io/tanakh-read-along-site/',
     favicon: '',

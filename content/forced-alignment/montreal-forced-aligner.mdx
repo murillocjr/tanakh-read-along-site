@@ -1,7 +1,7 @@
 ---
 title: "Montreal Forced Aligner"
-metaTitle: "Tanakh Read Along Karaoke Montreal Forced Aligner Python iOS Android"
-metaDescription: "Tanakh Read Along Karaoke Montreal Forced Aligner Python iOS Android"
+metaTitle: "Tanakh Read Along Karaoke Montreal Forced Aligner Python iOS "
+metaDescription: "Tanakh Read Along Karaoke Montreal Forced Aligner Python iOS "
 ---
 Montreal Forced Aligner is: "a command line utility for performing forced alignment of speech datasets using [Kaldi](http://kaldi-asr.org/)" as stated in their Github repo.
 
@@ -175,8 +175,18 @@ mfa align --clean by-chapter/t2601 by-chapter/t2601/t2601.dict english by-chapte
 
 The resulting ".TextGrid" file can be read with Praat,
 
-![Praat](praat.png)
+![Praat](praat_sc.png)
 
 I got to use the small python visualizer I coded too, just adjusted it a bit to be able to process the data exported as a table from Praat 
 
 ![QT Player](qtplayer.png)
+
+/*
+## Steps
+
+1. Script Utils to generate folders, lexicon-dict and json 
+2. Trim audio so it matches the text, usually this means remove the initial segment containing the book and chapter.
+ 
+
+ 
+*/
